@@ -7,9 +7,6 @@ Vagrant.configure("2") do |config|
     # Set the hostname
     config.vm.hostname = "corteza-devbox"
 
-    # Set the shared folder
-    config.vm.synced_folder "src", "/home/vagrant/workspace/src"
-
     # Use a free ip from the same lan as the host
     config.vm.network "private_network", type: "dhcp"
 
@@ -20,5 +17,4 @@ Vagrant.configure("2") do |config|
         # Shop IP every time the box is started
         s.inline = "echo -e \"Point your browser to:\nhttp://\"$(hostname -I | cut -d ' ' -f 2)"
     end
-
 end
