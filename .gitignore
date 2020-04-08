@@ -1,7 +1,6 @@
 ### General dev ###
 .DS_Store
 node_modules
-dist
 *.log
 .env
 coverage
@@ -14,9 +13,6 @@ coverage
 
 ### Vagrant Patch ###
 *.box
-
-src/corteza-server/
-src/corteza-webapp-one/
 
 ### Editor directories and files ###
 .idea

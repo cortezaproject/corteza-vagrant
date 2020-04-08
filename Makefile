@@ -16,7 +16,7 @@ WEBAPP_DIRS     = $(WEBAPP_BASEDIR) $(addprefix $(WEBAPP_BASEDIR)/, $(WEBAPPS))
 WEBAPP_CONFIGS  = $(addsuffix /config.js, $(WEBAPP_DIRS))
 
 
-dist: $(SERVER_DIRS) $(WEBAPP_DIRS) dist/extensions dist-config
+dist: $(SERVER_DIRS) $(WEBAPP_DIRS) dist/extensions
 
 dist-config: \
 	dist/server-api/.env \
@@ -44,7 +44,7 @@ dist/webapp: dist/corteza-webapp-one-$(C_VERSION).tar.gz
 	tar -xzf "$(<)" -C "$(@)"
 
 # webapps are packed w/o parent root
-dist/webapp/%: dist/corteza-webapp-%-$(C_VERSION).tar.gz
+dist/webapp/%: dist/corteza-webapp-%-$(C_VERSION).tar.gz dist/webapp
 	mkdir -p "$(@)"
 	tar -xzf "$(<)" -C "$(@)"
 

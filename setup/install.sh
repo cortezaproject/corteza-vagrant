@@ -49,7 +49,7 @@ mv MailHog_linux_amd64 /usr/local/bin/mailhog
 #
 # This is done before supervisor configuration just to be sure that everything is in place
 # before API and Corredor servers starts
-make -C /vagrant -j4 dist
+make -C /vagrant dist dist-config
 
 # Supervisor config
 #
