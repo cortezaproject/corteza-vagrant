@@ -27,3 +27,19 @@ Directory `setup/` also contains configuration files for all used components.
  
 ## Known bugs
  - [ ] Messaging and Compose cannot handle relative URLs for file attachments. Although file upload works, this bug prevents users from viewing the files
+
+## Troubleshooting
+
+Logs from supervisored services are accessible on mounted directory:
+ - var/log/mailhog.log
+ - var/log/server-api.log
+ - var/log/server-corredor.log
+ 
+Logs rotate after 2MB. See `setup/supervisor-*.conf` for details
+
+ 
+Other logs, accessible inside vagrant machine (after `vagrant ssh`)
+ - /var/log/supervisor/supervisord.log
+ - /var/log/nginx/access.log
+ - /var/log/nginx/error.log
+ - /var/log/mysql/error.log

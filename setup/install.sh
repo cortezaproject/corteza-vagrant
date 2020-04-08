@@ -44,12 +44,16 @@ service nginx reload
 # Mailhog smtp server & mail webapp
 wget --quiet https://github.com/mailhog/MailHog/releases/download/v1.0.0/MailHog_linux_amd64
 mv MailHog_linux_amd64 /usr/local/bin/mailhog
+chmod +x /usr/local/bin/mailhog
 
 # Install (non-dev) Corteza servers & webapps
 #
 # This is done before supervisor configuration just to be sure that everything is in place
 # before API and Corredor servers starts
 make -C /vagrant dist dist-config
+
+# Provision the Corteza db
+cd /vagrant/dist/server-api && ./bin/corteza-server-monolith provision && cd /
 
 # Supervisor config
 #
