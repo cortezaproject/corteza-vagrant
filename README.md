@@ -7,11 +7,21 @@ are not familiar with Vagrant.
 
 ## How to use?
 
-1. `vagrant up` (might take a couple of minutes, depending on internet connection speed and performance of your machine)
-2. Last lines from provision process shows IP address where Corteza can be accessed
-3. Sign up (first user created is automatically assigned to admin role)
-4. Confirmation email will be intercepted by Mailhog (point your browser to `http://<vagrant-box-ip>/mailhog`) 
-5. Click on the link and enjoy testing Corteza
+1. Install vagrant - https://www.vagrantup.com/downloads.html
+2. Install Virtualbox - https://www.virtualbox.org/wiki/Linux_Downloads
+3. Run `vagrant up` (might take a couple of minutes, depending on internet connection speed and performance of your machine)
+4. Last lines from provision process shows IP address where Corteza can be accessed
+5. Sign up (first user created is automatically assigned to admin role)
+6. Confirmation email will be intercepted by Mailhog (point your browser to `http://<vagrant-box-ip>/mailhog`) 
+7. Click on the link and enjoy testing Corteza
+
+### If you encounter this error during the 3rd step:
+> A host only network interface you're attempting to configure via DHCP already has a conflicting host only adapter with DHCP enabled
+
+Try running:
+1. `VBoxManage dhcpserver remove --netname HostInterfaceNetworking-vboxnet0`
+2. `vagrant destroy`
+3. `vagrant up`
 
 ## Provision
 
